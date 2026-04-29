@@ -19,3 +19,5 @@ def __init__(self):
     ft=tkFont.Font(family='Fixdsys',size=11)
     self.chatText['yscrollcommand'] = self.chatTextScrollBar.set
     self.chatText.Pack(expand=1,fill=tkinter.BOTH)
+    label = tkinter.Label(self.frame[1],height=2)
+
