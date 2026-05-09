@@ -33,5 +33,14 @@ def __init__(self):
     self.inputTexScrollBar['command'] = self.inputTex.yview()
     self.frame[2].pack(expand=1,fill=tkinter.BOTH)
 
+    self.inputTexScrollBar=tkinter.Scrollbar(self.frame[2])
+    self.inputTexScrollBar.pack(side=tkinter.RIGHT, fill=tkinter.Y)
+
+    ft=tkFont.Font(family='Fixdsys',size=11)
+    self.inputTex= tkinter.Text(self.frame[2],width=70,height=8,font=ft)
+    self.inputTex['yscrollcommand'] = self.inputTexScrollBar.set
+    self.inputTex.Pack(expand=1,fill=tkinter.BOTH)
+    self.inputTexScrollBar['command'] = self.inputTexScrollBar.yview()
+    self.frame[2].pack(expand=1,fill=tkinter.BOTH)
     
 
