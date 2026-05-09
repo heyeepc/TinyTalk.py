@@ -42,5 +42,8 @@ def __init__(self):
     self.inputTex.Pack(expand=1,fill=tkinter.BOTH)
     self.inputTexScrollBar['command'] = self.inputTexScrollBar.yview()
     self.frame[2].pack(expand=1,fill=tkinter.BOTH)
+
+    self.sendButton=tkinter.Button(self.frame[3],text='发送',width=10,command=self.sendMessage)
+    self.sendButton.pack(expand=1,side=tkinter.BOTTOM and tkinter.RIGHT,padx=25,pady=10)
     
 
