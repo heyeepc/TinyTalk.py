@@ -58,4 +58,9 @@ def receiveMessage(self):
     self.buffer = 1024
     self.chatText.insert(tkinter.END,'服务器已经就绪')
     while True:
-        clientSocket, clientAddress = self.serverSocket.accept()
+        self.connection,self.address = self.serverSocket.accept()
+        self.flag = True
+        while True:
+            self.cientMsg = self.connection.recv(self.buffer).decode('utf-8')
+            if not self.cientMsg:
+                continue
