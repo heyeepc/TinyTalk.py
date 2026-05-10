@@ -44,6 +44,18 @@ def __init__(self):
     self.frame[2].pack(expand=1,fill=tkinter.BOTH)
 
     self.sendButton=tkinter.Button(self.frame[3],text='发送',width=10,command=self.sendMessage)
-    self.sendButton.pack(expand=1,side=tkinter.BOTTOM and tkinter.RIGHT,padx=25,pady=10)
-    
+    self.sendButton.pack(expand=1,side=tkinter.BOTTOM and tkinter.RIGHT,padx=25,pady=5)
 
+    self.closeButton=tkinter.Button(self.frame[3],text='关闭',width=10,command=self.close)
+    self.closeButton.pack(expand=1,side=tkinter.RIGHT,padx=25,pady=5)
+    self.frame[3].pack(expand=1,fill=tkinter.BOTH)
+
+def receiveMessage(self):
+
+    self.serverSocket = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+    self.serverSocket.bind((self.local,self.port))
+    self.serverSocket.listen(15)
+    self.buffer = 1024
+    self.chatText.insert(tkinter.END,'服务器已经就绪')
+    while True:
+        clientSocket, clientAddress = self.serverSocket.accept()
