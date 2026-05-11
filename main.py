@@ -75,3 +75,9 @@ def receiveMessage(self):
                 theTime = time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
                 self.chatText.insert(tkinter.END, '客户端' + theTime + '说\n' )
                 self.chatText.insert(tkinter.END,''+ self.cientMsg)
+
+def sendMessage(self):
+
+    message = self.chatText.get('1.0',tkinter.END)
+    theTime = time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+    
