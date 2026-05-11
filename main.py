@@ -64,3 +64,14 @@ def receiveMessage(self):
             self.cientMsg = self.connection.recv(self.buffer).decode('utf-8')
             if not self.cientMsg:
                 continue
+
+            elif self.cientMsg == 'y':
+                self.chatText.insert(tkinter.END,'服务器与客户端建立连接成功')
+                self.connection.send(b'y')
+            elif self.cientMsg == 'n':
+                self.chatText.insert(tkinter.END,'服务器与客户端建立连接失败')
+                self.connection.send(b'n')
+            else:
+                theTime = time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+                self.chatText.insert(tkinter.END, '客户端' + theTime + '说\n' )
+                self.chatText.insert(tkinter.END,''+ self.cientMsg)
