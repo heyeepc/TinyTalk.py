@@ -80,4 +80,8 @@ def sendMessage(self):
 
     message = self.chatText.get('1.0',tkinter.END)
     theTime = time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+    self.chatText.insert(tkinter.END,'服务器'+ theTime + '说 \n')
+    self.chatText.insert(tkinter.END,message)
+    if self.flag == True:
+        self.connection.send(message.encode())
     
