@@ -1,3 +1,4 @@
+import sys
 import tkinter
 import tkinter.font as tkFont
 import socket
@@ -84,4 +85,20 @@ def sendMessage(self):
     self.chatText.insert(tkinter.END,message)
     if self.flag == True:
         self.connection.send(message.encode())
-    
+    else:
+        self.chatText.insert(tkinter.END,'你与客户端未建立连接，客户端无法收到信息\n')
+        self.inputText.delete(0.0,message.__len__()-1.0)
+
+    def close(self):
+        sys.exit()
+    def startNewThread(self):
+        thread = threading.Thread(target=self.receiveMessage,args=())
+        thread.setDaemon(True)
+        thread.start()
+
+def main():
+    server = serverUI()
+    server.startNewThread()
+    server.root.mainloop()
+if __name__ == '__main__':
+    main()
