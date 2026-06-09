@@ -23,7 +23,7 @@ def __init__(self):
     self.chatText['yscrollcommand'] = self.chatTextscrollbar.set
     self.chatText.pack(expand=1,fill=tkinter.BOTH)
     self.chatTextscrollbar['command'] = self.chatText.yview()
-    self.frame[1].pack(expand=1,fill=tkinter.BOTH)\
+    self.frame[0].pack(expand=1,fill=tkinter.BOTH)\
 
     self.inputTextScrollbar = tkinter.Scrollbar(self.frame[2])
     self.inputTextScrollbar.pack(side=tkinter.RIGHT,fill=tkinter.Y)
@@ -33,11 +33,22 @@ def __init__(self):
     self.inputText['yscrollcommand'] = self.inputTextScrollbar.set
     self.inputText.pack(expand=1,fill=tkinter.BOTH)
     self.inputTextScrollbar['command'] = self.inputText.yview()
-    self.frame[0].pack(expand=1,fill=tkinter.BOTH)
+    self.frame[1].pack(expand=1,fill=tkinter.BOTH)
 
     label = tkinter.Label(self.frame[1],height=2)
     label.pack(fill=tkinter.BOTH)
     self.inputTextScrollbar = tkinter.Scrollbar(self.frame[2])
     self.inputTextScrollbar.pack(side=tkinter.RIGHT,fill=tkinter.Y)
 
+    ft = tkFont.Font(family='fixdsys',size=11)
+    self.inputText = tkinter.Entry(self.frame[2],width=70 ,height=8, font=ft)
+    self.inputText['yscrollcommand'] = self.inputTextScrollbar.set
+    self.inputText.pack(expand=1,fill=tkinter.BOTH)
+    self.inputTextScrollbar['command'] = self.inputText.yview()
+    self.frame[2].pack(expand=1,fill=tkinter.BOTH)
+
+    self.senButton=tkinter.Button(self.frame[3],text='发送',width=10,command=self.sendMessage)
+    self.senButton.pack(expand=1,fill=tkinter.BOTH and  tkinter.RIGHT,pady=15,padx=8)
+
     
+
