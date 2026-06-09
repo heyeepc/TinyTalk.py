@@ -33,6 +33,11 @@ def __init__(self):
     self.inputText['yscrollcommand'] = self.inputTextScrollbar.set
     self.inputText.pack(expand=1,fill=tkinter.BOTH)
     self.inputTextScrollbar['command'] = self.inputText.yview()
-    self.frame[2].pack(expand=1,fill=tkinter.BOTH)
+    self.frame[0].pack(expand=1,fill=tkinter.BOTH)
+
+    label = tkinter.Label(self.frame[1],height=2)
+    label.pack(fill=tkinter.BOTH)
+    self.inputTextScrollbar = tkinter.Scrollbar(self.frame[2])
+    self.inputTextScrollbar.pack(side=tkinter.RIGHT,fill=tkinter.Y)
 
     
